@@ -1,31 +1,27 @@
 {
   "name": "vsko-ngrok",
-  "version": "0.0.1",
-  "description": "VSKO Ngrok client",
+  "version": "0.0.2",
+  "description": "VSKO ngrok client",
+  "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "lint": "eslint js web/js/app web/js/screen web/js/config"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "ezequiel.bertran",
-  "license": "private",
+  "license": "MIT",
   "dependencies": {
-    "compression": "^1.0.11",
     "ngrok": "2.2.3",
-    "underscore": "^1.8.3",
     "fs": "^0.0.2",
     "q": "^1.4.1"
   },
-  "devDependencies": {
-    "eslint": "1.4.3",
-    "nodemon": "1.7.0",
-    "watchify": "3.4.0"
+  "directories": {
+    "example": "examples"
   },
-  "engines": {
-    "node": "4.1.1",
-    "npm": "2.14.8"
-  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/eznibe/vsko-ngrok.git"
-  }
+    "url": "git+https://github.com/eznibe/vsko-ngrok.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eznibe/vsko-ngrok/issues"
+  },
+  "homepage": "https://github.com/eznibe/vsko-ngrok#readme"
 }
