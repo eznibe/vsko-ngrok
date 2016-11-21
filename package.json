@@ -1,27 +1,14 @@
 {
   "name": "vsko-ngrok",
-  "version": "1.0.5",
-  "description": "Generate node core dumps with having to abort, regardless of ulimit -c setting",
+  "version": "1.0.6",
+  "description": "VSKO ngrok client",
   "main": "index.js",
-  "bin": {
-    "core-dump": "./cmd.js"
-  },
-  "files": [
-    "cmd.js",
-    "index.js",
-    "lib",
-    "examples"
-  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "David Mark Clements",
   "license": "MIT",
   "dependencies": {
-    "console.table": "^0.4.0",
-    "debug": "^2.2.0",
-    "minimist": "^1.2.0",
-    "ps-list": "^3.1.0",
+    "fs": "^0.0.2",
     "ngrok": "2.2.3"
   },
   "directories": {
@@ -30,10 +17,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidmarkclements/core-dump.git"
+    "url": "git+https://github.com/eznibe/vsko-ngrok.git"
   },
   "bugs": {
-    "url": "https://github.com/davidmarkclements/core-dump/issues"
+    "url": "https://github.com/eznibe/vsko-ngrok/issues"
   },
-  "homepage": "https://github.com/davidmarkclements/core-dump#readme"
+  "homepage": "https://github.com/eznibe/vsko-ngrok#readme"
 }
