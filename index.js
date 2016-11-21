@@ -34,6 +34,8 @@ function init(config) {
 
     var tunnels = config.tunnels;
 
+    console.log('Ngrok tunnels', tunnels);
+
     if (tunnels.length > 0) {
 
       var tunnel = tunnels.pop();
