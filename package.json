@@ -1,6 +1,6 @@
 {
   "name": "vsko-ngrok",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "VSKO ngrok client",
   "main": "index.js",
   "scripts": {

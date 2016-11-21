@@ -3,7 +3,7 @@ var fs = require('fs');
 
 var token = 'hhbdwe7FXbQTBZGuXhUS_i9MUVPJnfn7N87hPAa8B';
 
-var config = {tunnels: [
+var defaultConfig = {tunnels: [
   {name: 'debug', proto: 'tcp', addr: 5858},
   {name: 'ssh', proto: 'tcp', addr: 2222},
   {name: 'ngrok', proto: 'http', addr: 4040, bind_tls: false},
@@ -15,17 +15,22 @@ var configurationFile = 'ngrok-configuration.json';
 
 function init(config) {
 
-  token = config.token ? config.token : token;
+  configurationFile = config && config.configurationFile ? config.configurationFile : configurationFile;
+
+  // console.log('Config file:', configurationFile)
 
   try {
-    config = JSON.parse(fs.readFileSync(config.configurationFile ? config.configurationFile : configurationFile))
+    config = JSON.parse(fs.readFileSync(configurationFile));
   }
   catch(err) {
+    config = defaultConfig;
     console.log('Can\'t find config file, using default')
   };
 
+  token = config.token ? config.token : token;
+
   ngrok.authtoken(token, function(err, token) {
-    console.log('Token set');
+    console.log('Ngrok token set');
 
     var tunnels = config.tunnels;
 
