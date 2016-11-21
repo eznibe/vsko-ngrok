@@ -3,8 +3,7 @@ var fs = require('fs');
 
 var token;
 
-var defaultConfig = { token: 'hhbdwe7FXbQTBZGuXhUS_i9MUVPJnfn7N87hPAa8B',
-                      tunnels: [
+var defaultConfig = { tunnels: [
                         {name: 'debug', proto: 'tcp', addr: 5858},
                         {name: 'ssh', proto: 'tcp', addr: 2222},
                         {name: 'ngrok', proto: 'http', addr: 4040, bind_tls: false},
@@ -28,11 +27,11 @@ function init(configurationFile, app) {
     console.log('Can\'t find config file, using defaults.')
   };
 
-  if () {
+  if (config.token) {
     token = config.token;
   } else {
     // error can't connectto ngrok without token
-    consle.error('No ngrok token set, can t create a client.');
+    consle.error('No ngrok token set, can\'t create a client.');
     return;
   }
 
