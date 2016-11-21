@@ -1,21 +1,22 @@
 var ngrok = require('ngrok');
 var fs = require('fs');
 
-var token = 'hhbdwe7FXbQTBZGuXhUS_i9MUVPJnfn7N87hPAa8B';
+var token;
 
-var defaultConfig = {tunnels: [
-  {name: 'debug', proto: 'tcp', addr: 5858},
-  {name: 'ssh', proto: 'tcp', addr: 2222},
-  {name: 'ngrok', proto: 'http', addr: 4040, bind_tls: false},
-  {name: 'node-inspector', proto: 'http', addr: 8000, bind_tls: false}
-]};
+var defaultConfig = { token: 'hhbdwe7FXbQTBZGuXhUS_i9MUVPJnfn7N87hPAa8B',
+                      tunnels: [
+                        {name: 'debug', proto: 'tcp', addr: 5858},
+                        {name: 'ssh', proto: 'tcp', addr: 2222},
+                        {name: 'ngrok', proto: 'http', addr: 4040, bind_tls: false},
+                        {name: 'node-inspector', proto: 'http', addr: 8000, bind_tls: false}
+                      ]};
 
-var configurationFile = 'ngrok-configuration.json';
+var defaultConfigurationFile = 'ngrok-configuration.json';
 
 
-function init(config) {
+function init(configurationFile, app) {
 
-  configurationFile = config && config.configurationFile ? config.configurationFile : configurationFile;
+  configurationFile = configurationFile ? configurationFile : defaultConfigurationFile;
 
   // console.log('Config file:', configurationFile)
 
@@ -24,10 +25,16 @@ function init(config) {
   }
   catch(err) {
     config = defaultConfig;
-    console.log('Can\'t find config file, using default')
+    console.log('Can\'t find config file, using defaults.')
   };
 
-  token = config.token ? config.token : token;
+  if () {
+    token = config.token;
+  } else {
+    // error can't connectto ngrok without token
+    consle.error('No ngrok token set, can t create a client.');
+    return;
+  }
 
   ngrok.authtoken(token, function(err, token) {
     console.log('Ngrok token set');
